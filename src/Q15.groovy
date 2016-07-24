@@ -1,10 +1,12 @@
+import static java.lang.Math.abs
 import static java.lang.Math.random
 
 /**
  * Created by crk on 24/07/2016.
  */
 Scanner input = new Scanner(System.in)
-int randomNumber = (int) (random() * 1001)
+int randomNumber = abs(random() * 1001)
+println randomNumber
 int guess
 println "Guess a random number between 0 & 1,000"
 int count = 1
