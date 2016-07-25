@@ -23,5 +23,3 @@ while (abs(score1 - score2) <= 3) {
     println "Player 1: " + score1 + "\nPlayer 2: " + score2
 }
 println "The winner is " + ((score1 > score2) ? "Player 1" : "Player 2")
-
-
