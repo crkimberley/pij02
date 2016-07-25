@@ -4,40 +4,37 @@ import static java.lang.Math.sqrt
  * Created by crk on 25/07/2016.
  */
 Scanner input = new Scanner(System.in)
+int lowPrime, highPrime
 print "Enter number to find closest primes: "
 int number = input.nextInt()
 print "Closest prime(s) to " + number + " = "
+
 if (number > 2) {
-    int lowPrime = number - 1
-    while (lowPrime > 1) {
-        boolean prime = true
-        int i = 2
-        while (i <= ((int) sqrt(lowPrime)) && prime) {
-            if (lowPrime % i == 0) {
-                prime = false
+    int upOrDown = -1
+    while (upOrDown < 2) {
+        int possiblePrime = number + upOrDown
+        while (possiblePrime > 1) {
+            boolean prime = true
+            int i = 2
+            while (i <= ((int) sqrt(possiblePrime)) && prime) {
+                if (possiblePrime % i == 0) {
+                    prime = false
+                }
+                i++
             }
-            i++
-        }
-        if (prime) {
-            break
-        }
-        lowPrime--
-    }
-    int highPrime = number + 1
-    while (true) {
-        boolean prime = true
-        int i = 2
-        while (i <= ((int) sqrt(highPrime)) && prime) {
-            if (highPrime % i == 0) {
-                prime = false
+            if (prime) {
+                break
             }
-            i++
+            possiblePrime = possiblePrime + upOrDown
         }
-        if (prime) {
-            break
+        if (upOrDown < 0) {
+            lowPrime = possiblePrime
+        } else {
+            highPrime = possiblePrime
         }
-        highPrime++
+        upOrDown = upOrDown + 2
     }
+
     if (number - lowPrime == highPrime - number) {
         println lowPrime + " & " + highPrime
     } else {
