@@ -16,6 +16,7 @@ while (abs(score1 - score2) <= 3) {
     || (turn.charAt(0) == 'p' && turn.charAt(1) == 'r')
     || (turn.charAt(0) == 's' && turn.charAt(1) == 'p')) {
         score1++
+        // We're assuming inputs are all valid
     } else if (turn.charAt(0) != turn.charAt(1)) {
         score2++
     }
